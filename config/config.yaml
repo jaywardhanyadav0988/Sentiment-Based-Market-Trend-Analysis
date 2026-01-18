@@ -1,0 +1,41 @@
+# Configuration file for Sentiment Analysis Project
+
+# Data settings
+data:
+  input_file: "data/stock_tweets.csv"
+  text_column: "Tweet"
+  sample_size: null  # null for full dataset, or specify number
+  random_state: 42
+
+# Preprocessing settings
+preprocessing:
+  remove_stopwords: true
+  lemmatize: true
+  normalize: true
+  return_tokens: false
+
+# Model settings
+models:
+  use_vader: true
+  use_textblob: true
+  use_bert: false  # Set to true if transformers library is installed
+  bert_model_name: "cardiffnlp/twitter-roberta-base-sentiment-latest"
+
+# Evaluation settings
+evaluation:
+  labels: ["positive", "negative", "neutral"]
+  plot_confusion_matrix: true
+  save_plots: true
+
+# Output settings
+output:
+  directory: "models"
+  save_results: true
+  save_summary: true
+  save_stock_analysis: true
+
+# Application settings
+app:
+  title: "Sentiment-Based Market Trend Analysis"
+  default_sample_size: 1000
+  max_sample_size: 10000
